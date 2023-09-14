@@ -121,6 +121,8 @@ class QuranTab extends StatelessWidget {
     "الناس"
   ];
 
+  QuranTab({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -144,7 +146,7 @@ class QuranTab extends StatelessWidget {
         ),
         Expanded(
           child: ListView.separated(
-            separatorBuilder: (context, index) => Divider(
+            separatorBuilder: (context, index) => const Divider(
               color: Colors.transparent,
             ),
             itemBuilder: (context, index) {

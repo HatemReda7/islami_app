@@ -6,6 +6,8 @@ import 'package:islami_app/myThemeData.dart';
 class SuraDetails extends StatefulWidget {
   static const String routeName = "Sura Details";
 
+  const SuraDetails({super.key});
+
   @override
   State<SuraDetails> createState() => _SuraDetailsState();
 }
@@ -21,7 +23,7 @@ class _SuraDetailsState extends State<SuraDetails> {
     }
     return Stack(
       children: [
-        Image(
+        const Image(
           image: AssetImage("assets/images/bg.png"),
           fit: BoxFit.fill,
         ),
@@ -35,7 +37,7 @@ class _SuraDetailsState extends State<SuraDetails> {
           body: Padding(
             padding: const EdgeInsets.all(30),
             child: Card(
-              margin: EdgeInsets.only(bottom: 40),
+              margin: const EdgeInsets.only(bottom: 40),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
               elevation: 20,
               child: Padding(
@@ -50,8 +52,8 @@ class _SuraDetailsState extends State<SuraDetails> {
                           textAlign: TextAlign.right,
                           args.name,
                         ),
-                        SizedBox(width: 25,),
-                        ImageIcon(AssetImage("assets/images/circle_play.png"))
+                        const SizedBox(width: 25,),
+                        const ImageIcon(AssetImage("assets/images/circle_play.png"))
                       ],
                     ),
                     Divider(
@@ -62,7 +64,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                     ),
                     Expanded(
                       child: ListView.separated(
-                        separatorBuilder: (context, index) => Divider(color: Colors.transparent,),
+                        separatorBuilder: (context, index) => const Divider(color: Colors.transparent,),
                         itemBuilder: (context, index) {
                           return Center(
                               child: Text(
