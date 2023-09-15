@@ -7,7 +7,7 @@ class AhadethTab extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
      children: [
-       Image.asset("name")
+       Image.asset("assets/images/ahadeth_image_png"),
      ],
     );
   }
