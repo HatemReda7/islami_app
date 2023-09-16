@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/SuraDetails.dart';
 import 'package:islami_app/HomeScreen.dart';
-import '../assets/images/2.0x/myThemeData.dart';
+import 'package:islami_app/myThemeData.dart';
 
 void main() {
   runApp(const MyApp());

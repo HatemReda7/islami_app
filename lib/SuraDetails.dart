@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/SuraModel.dart';
-import '../assets/images/2.0x/myThemeData.dart';
+import 'package:islami_app/myThemeData.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routeName = "Sura Details";
