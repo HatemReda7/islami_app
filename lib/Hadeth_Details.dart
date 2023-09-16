@@ -47,6 +47,7 @@ class HadethDetails extends StatelessWidget {
                               child: Text(
                                 args.content.toString(),
                                 style: Theme.of(context).textTheme.bodySmall,
+                                textDirection: TextDirection.rtl,
                                 textAlign: TextAlign.center,
                               ));
                         },

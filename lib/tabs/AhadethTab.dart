@@ -22,7 +22,7 @@ class AhadethTab extends StatelessWidget {
            thickness: 2,
          ),
          Text(
-           "Hadith",
+           "Hadeth",
            style: Theme.of(context)
                .textTheme
                .bodyMedium!
