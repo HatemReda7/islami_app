@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/Language_Screen.dart';
 import 'package:islami_app/SuraDetails.dart';
 import 'package:islami_app/HomeScreen.dart';
+import 'package:islami_app/Theme_Screen.dart';
 import 'package:islami_app/myThemeData.dart';
 
 void main() {
@@ -18,6 +20,8 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName : (context) => const HomeScreen(),
         SuraDetails.routeName : (context) => const SuraDetails(),
+        ThemeScreen.routeName : (context) =>  ThemeScreen(),
+        LanguageScreen.routeName : (context) =>  LanguageScreen(),
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
