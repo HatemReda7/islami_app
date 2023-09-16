@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/HadethModel.dart';
-import 'package:islami_app/myThemeData.dart';
+import '../../assets/images/2.0x/myThemeData.dart';
 
 class AhadethTab extends StatelessWidget {
 
