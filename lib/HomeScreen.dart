@@ -5,6 +5,7 @@ import 'package:islami_app/tabs/QuranTab.dart';
 import 'package:islami_app/tabs/RadioTab.dart';
 import 'package:islami_app/tabs/SebhaTab.dart';
 import 'package:islami_app/tabs/SettingsTab.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'Home';
@@ -18,7 +19,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int index = 0;
 
-  List<Widget> tabs=[QuranTab(), AhadethTab(), SebhaTab(),const RadioTab(),const SettingsTab()];
+  List<Widget> tabs = [
+    QuranTab(),
+    AhadethTab(),
+    SebhaTab(),
+    const RadioTab(),
+    const SettingsTab()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           appBar: AppBar(
               title: Text(
-            "Islami",
+            AppLocalizations.of(context)!.apptitle,
             style:
                 Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 30),
           )),
@@ -44,19 +51,23 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               items: [
                 BottomNavigationBarItem(
-                    icon: const ImageIcon(AssetImage("assets/images/quran.png")),
+                    icon:
+                        const ImageIcon(AssetImage("assets/images/quran.png")),
                     label: "Quran",
                     backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(
-                    icon: const ImageIcon(AssetImage("assets/images/Group 6.png")),
+                    icon: const ImageIcon(
+                        AssetImage("assets/images/Group 6.png")),
                     label: "Ahadeth",
                     backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(
-                    icon: const ImageIcon(AssetImage("assets/images/sebha_icon.png")),
+                    icon: const ImageIcon(
+                        AssetImage("assets/images/sebha_icon.png")),
                     label: "Sebha",
                     backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(
-                    icon: const ImageIcon(AssetImage("assets/images/radio.png")),
+                    icon:
+                        const ImageIcon(AssetImage("assets/images/radio.png")),
                     label: "Radio",
                     backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(

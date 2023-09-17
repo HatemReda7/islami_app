@@ -14,8 +14,6 @@ class _ThemeScreenState extends State<ThemeScreen> {
 
   bool flag2=false;
 
-  final SharedPreferences prefs = await SharedPreferences.getInstance();
-
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -39,8 +37,6 @@ class _ThemeScreenState extends State<ThemeScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  await prefs.setString('theme', 'light');
-
                   flag1=true;
                   flag2=false;
                   setState(() {});
@@ -62,7 +58,6 @@ class _ThemeScreenState extends State<ThemeScreen> {
               SizedBox(height: 20,),
               InkWell(
                 onTap: () {
-                  await prefs.setString('theme', 'dark');
                   flag1=false;
                   flag2=true;
                   setState(() {});
@@ -88,9 +83,8 @@ class _ThemeScreenState extends State<ThemeScreen> {
     ]);
   }
 
-  settingTheme(String theme)async{
-    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
-    final SharedPreferences prefs = await _prefs;
+  settingTheme(String theme){
+
     if(theme=="light"){
 
     }else if(theme=="dark"){
