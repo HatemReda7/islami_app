@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/myThemeData.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class ThemeScreen extends StatelessWidget {
+class ThemeScreen extends StatefulWidget {
   static const String routeName = "Theme Screen";
+
+  @override
+  State<ThemeScreen> createState() => _ThemeScreenState();
+}
+
+class _ThemeScreenState extends State<ThemeScreen> {
+  bool flag1=false;
+
+  bool flag2=false;
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +37,46 @@ class ThemeScreen extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-
+                  settingTheme("light");
+                  flag1=true;
+                  flag2=false;
+                  setState(() {});
                 },
-                child: Text("Light Theme",
-                    style: Theme.of(context).textTheme.bodyMedium),
+                child: Row(
+                  children: [
+                    Text("Light Theme",
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15,right: 15),
+                      child: Visibility(
+                          visible: flag1,
+                          child: Icon(Icons.check,color: MyThemeData.blackColor,size: 30,)),
+                    )
+                  ],
+                ),
               ),
               SizedBox(height: 20,),
               InkWell(
                 onTap: () {
-
+                  settingTheme("dark");
+                  flag1=false;
+                  flag2=true;
+                  setState(() {});
                 },
-                child: Text("Dark Theme",
-                    style: Theme.of(context).textTheme.bodyMedium),
+                child: Row(
+                  children: [
+                    Text("Dark Theme",
+                        style: Theme.of(context).textTheme.bodyMedium),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15,right: 15),
+                      child: Visibility(
+                          visible: flag2,
+                          child: Icon(Icons.check,color: MyThemeData.blackColor,size: 30,)),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -45,4 +84,15 @@ class ThemeScreen extends StatelessWidget {
       )
     ]);
   }
+
+  settingTheme(String theme)async{
+    final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+    final SharedPreferences prefs = await _prefs;
+    if(theme=="light"){
+
+    }else if(theme=="dark"){
+
+    }
+  }
+
 }
