@@ -5,6 +5,8 @@ import 'package:islami_app/SuraDetails.dart';
 import 'package:islami_app/HomeScreen.dart';
 import 'package:islami_app/Theme_Screen.dart';
 import 'package:islami_app/myThemeData.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +18,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: const Locale("en"),
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {
