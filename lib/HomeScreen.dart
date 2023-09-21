@@ -39,10 +39,11 @@ class _HomeScreenState extends State<HomeScreen> {
         Scaffold(
           appBar: AppBar(
               title: Text(
-            AppLocalizations.of(context)!.apptitle,
-            style:
+                AppLocalizations.of(context)!.appTitle,
+                style:
                 Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 30),
-          )),
+              )
+          ),
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: index,
               onTap: (value) {
@@ -52,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
               items: [
                 BottomNavigationBarItem(
                     icon:
-                        const ImageIcon(AssetImage("assets/images/quran.png")),
+                    const ImageIcon(AssetImage("assets/images/quran.png")),
                     label: "Quran",
                     backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(
@@ -67,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(
                     icon:
-                        const ImageIcon(AssetImage("assets/images/radio.png")),
+                    const ImageIcon(AssetImage("assets/images/radio.png")),
                     label: "Radio",
                     backgroundColor: MyThemeData.primaryColor),
                 BottomNavigationBarItem(

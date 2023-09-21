@@ -82,14 +82,4 @@ class _ThemeScreenState extends State<ThemeScreen> {
       )
     ]);
   }
-
-  settingTheme(String theme){
-
-    if(theme=="light"){
-
-    }else if(theme=="dark"){
-
-    }
-  }
-
 }
