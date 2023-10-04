@@ -31,7 +31,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 30),
         )),
         body: Padding(
-          padding: const EdgeInsets.only(top: 80, left: 40),
+          padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 30),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
