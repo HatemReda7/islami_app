@@ -13,11 +13,9 @@ class ThemeScreen extends StatefulWidget {
 }
 
 class _ThemeScreenState extends State<ThemeScreen> {
-
-
   @override
   Widget build(BuildContext context) {
-    var pro=Provider.of<MyProvider>(context);
+    var pro = Provider.of<MyProvider>(context);
     return Stack(children: [
       Image.asset(
         "assets/images/bg.png",
@@ -27,7 +25,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
       Scaffold(
         appBar: AppBar(
             title: Text(
-              AppLocalizations.of(context)!.appTitle,
+          AppLocalizations.of(context)!.appTitle,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 30),
         )),
         body: Padding(
@@ -45,16 +43,30 @@ class _ThemeScreenState extends State<ThemeScreen> {
                 child: Row(
                   children: [
                     Text("Light Theme",
-                        style: Theme.of(context).textTheme.bodyMedium),
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          color: pro.themeMode == ThemeMode.light
+                              ? MyThemeData.primaryColor
+                              : MyThemeData.blackColor
+                        )),
                     const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15,right: 15),
-                      child: pro.themeMode==ThemeMode.light?Icon(Icons.check,color: MyThemeData.blackColor,size: 30,):SizedBox.shrink(),
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: pro.themeMode == ThemeMode.light
+                          ? Icon(
+                              Icons.check,
+                              color: pro.themeMode == ThemeMode.light
+                                  ? MyThemeData.primaryColor
+                                  : MyThemeData.blackColor,
+                              size: 30,
+                            )
+                          : SizedBox.shrink(),
                     )
                   ],
                 ),
               ),
-              const SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
               InkWell(
                 onTap: () {
                   pro.changeTheme(ThemeMode.dark);
@@ -63,11 +75,23 @@ class _ThemeScreenState extends State<ThemeScreen> {
                 child: Row(
                   children: [
                     Text("Dark Theme",
-                        style: Theme.of(context).textTheme.bodyMedium),
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: pro.themeMode == ThemeMode.dark
+                                ? MyThemeData.primaryColor
+                                : MyThemeData.blackColor
+                        )),
                     const Spacer(),
                     Padding(
-                      padding: const EdgeInsets.only(left: 15,right: 15),
-                      child: pro.themeMode==ThemeMode.light?SizedBox.shrink(): Icon(Icons.check,color: MyThemeData.blackColor,size: 30,),
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: pro.themeMode == ThemeMode.light
+                          ? SizedBox.shrink()
+                          : Icon(
+                              Icons.check,
+                              color: pro.themeMode == ThemeMode.dark
+                                  ? MyThemeData.primaryColor
+                                  : MyThemeData.blackColor,
+                              size: 30,
+                            ),
                     )
                   ],
                 ),

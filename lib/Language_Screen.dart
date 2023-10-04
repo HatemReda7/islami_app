@@ -14,10 +14,9 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-
   @override
   Widget build(BuildContext context) {
-    var pro= Provider.of<MyProvider>(context);
+    var pro = Provider.of<MyProvider>(context);
     return Stack(children: [
       Image.asset(
         "assets/images/bg.png",
@@ -27,13 +26,9 @@ class _LanguageScreenState extends State<LanguageScreen> {
       Scaffold(
         appBar: AppBar(
             title: Text(
-              AppLocalizations.of(context)!.appTitle,
-              style: Theme
-                  .of(context)
-                  .textTheme
-                  .bodyLarge!
-                  .copyWith(fontSize: 30),
-            )),
+          AppLocalizations.of(context)!.appTitle,
+          style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 30),
+        )),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 30),
           child: Column(
@@ -49,20 +44,29 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 child: Row(
                   children: [
                     Text("English",
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .bodyMedium),
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: pro.languageCode == "en"
+                                ? MyThemeData.primaryColor
+                                : MyThemeData.blackColor)),
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: pro.languageCode=="en"? Icon(Icons.check, color: MyThemeData
-                          .blackColor, size: 30,):SizedBox.shrink(),
+                      child: pro.languageCode == "en"
+                          ? Icon(
+                              Icons.check,
+                              color: pro.languageCode == "en"
+                                  ? MyThemeData.primaryColor
+                                  : MyThemeData.blackColor,
+                              size: 30,
+                            )
+                          : SizedBox.shrink(),
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 20,
+              ),
               InkWell(
                 onTap: () {
                   pro.changeLanguage("ar");
@@ -71,15 +75,22 @@ class _LanguageScreenState extends State<LanguageScreen> {
                 child: Row(
                   children: [
                     Text("عربي",
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .bodyMedium),
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                            color: pro.languageCode == "ar"
+                                ? MyThemeData.primaryColor
+                                : MyThemeData.blackColor)),
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: pro.languageCode=="ar"?Icon(Icons.check, color: MyThemeData
-                          .blackColor, size: 30,):SizedBox.shrink(),
+                      child: pro.languageCode == "ar"
+                          ? Icon(
+                              Icons.check,
+                              color: pro.languageCode == "ar"
+                                  ? MyThemeData.primaryColor
+                                  : MyThemeData.blackColor,
+                              size: 30,
+                            )
+                          : SizedBox.shrink(),
                     )
                   ],
                 ),
