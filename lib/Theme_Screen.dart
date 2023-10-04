@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/myThemeData.dart';
+import 'package:islami_app/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThemeScreen extends StatefulWidget {
   static const String routeName = "Theme Screen";
@@ -10,12 +13,11 @@ class ThemeScreen extends StatefulWidget {
 }
 
 class _ThemeScreenState extends State<ThemeScreen> {
-  bool flag1=false;
 
-  bool flag2=false;
 
   @override
   Widget build(BuildContext context) {
+    var pro=Provider.of<MyProvider>(context);
     return Stack(children: [
       Image.asset(
         "assets/images/bg.png",
@@ -25,7 +27,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
       Scaffold(
         appBar: AppBar(
             title: Text(
-          "Islami",
+              AppLocalizations.of(context)!.appTitle,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 30),
         )),
         body: Padding(
@@ -37,41 +39,35 @@ class _ThemeScreenState extends State<ThemeScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  flag1=true;
-                  flag2=false;
+                  pro.changeTheme(ThemeMode.light);
                   setState(() {});
                 },
                 child: Row(
                   children: [
                     Text("Light Theme",
                         style: Theme.of(context).textTheme.bodyMedium),
-                    Spacer(),
+                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15,right: 15),
-                      child: Visibility(
-                          visible: flag1,
-                          child: Icon(Icons.check,color: MyThemeData.blackColor,size: 30,)),
+                      child: pro.themeMode==ThemeMode.light?Icon(Icons.check,color: MyThemeData.blackColor,size: 30,):SizedBox.shrink(),
                     )
                   ],
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
               InkWell(
                 onTap: () {
-                  flag1=false;
-                  flag2=true;
+                  pro.changeTheme(ThemeMode.dark);
                   setState(() {});
                 },
                 child: Row(
                   children: [
                     Text("Dark Theme",
                         style: Theme.of(context).textTheme.bodyMedium),
-                    Spacer(),
+                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15,right: 15),
-                      child: Visibility(
-                          visible: flag2,
-                          child: Icon(Icons.check,color: MyThemeData.blackColor,size: 30,)),
+                      child: pro.themeMode==ThemeMode.light?SizedBox.shrink(): Icon(Icons.check,color: MyThemeData.blackColor,size: 30,),
                     )
                   ],
                 ),

@@ -7,9 +7,13 @@ import 'package:islami_app/Theme_Screen.dart';
 import 'package:islami_app/myThemeData.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+      create: (context) => MyProvider(),
+      child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -17,10 +21,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var pro=Provider.of<MyProvider>(context);
     return MaterialApp(
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      locale: const Locale("en"),
+      locale: Locale(pro.languageCode),
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routeName,
       routes: {
@@ -32,6 +37,7 @@ class MyApp extends StatelessWidget {
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,
+      themeMode: pro.themeMode,
     );
   }
 }

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/myThemeData.dart';
+import 'package:islami_app/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageScreen extends StatefulWidget {
   static const String routeName = "Language Screen";
@@ -11,12 +14,10 @@ class LanguageScreen extends StatefulWidget {
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  bool flag1 = false;
-
-  bool flag2 = false;
 
   @override
   Widget build(BuildContext context) {
+    var pro= Provider.of<MyProvider>(context);
     return Stack(children: [
       Image.asset(
         "assets/images/bg.png",
@@ -26,7 +27,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
       Scaffold(
         appBar: AppBar(
             title: Text(
-              "Islami",
+              AppLocalizations.of(context)!.appTitle,
               style: Theme
                   .of(context)
                   .textTheme
@@ -42,8 +43,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
             children: [
               InkWell(
                 onTap: () {
-                  flag1 = true;
-                  flag2 = false;
+                  pro.changeLanguage("en");
                   setState(() {});
                 },
                 child: Row(
@@ -56,10 +56,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: Visibility(
-                          visible: flag1,
-                          child: Icon(Icons.check, color: MyThemeData
-                              .blackColor, size: 30,)),
+                      child: pro.languageCode=="en"? Icon(Icons.check, color: MyThemeData
+                          .blackColor, size: 30,):SizedBox.shrink(),
                     )
                   ],
                 ),
@@ -67,13 +65,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
               SizedBox(height: 20,),
               InkWell(
                 onTap: () {
-                  flag1 = false;
-                  flag2 = true;
+                  pro.changeLanguage("ar");
                   setState(() {});
                 },
                 child: Row(
                   children: [
-                    Text("Arabic",
+                    Text("عربي",
                         style: Theme
                             .of(context)
                             .textTheme
@@ -81,10 +78,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
-                      child: Visibility(
-                          visible: flag2,
-                          child: Icon(Icons.check, color: MyThemeData
-                              .blackColor, size: 30,)),
+                      child: pro.languageCode=="ar"?Icon(Icons.check, color: MyThemeData
+                          .blackColor, size: 30,):SizedBox.shrink(),
                     )
                   ],
                 ),
