@@ -19,7 +19,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
     var pro = Provider.of<MyProvider>(context);
     return Stack(children: [
       Image.asset(
-        "assets/images/bg.png",
+        pro.themeMode==ThemeMode.light?
+        "assets/images/bg.png":"assets/images/bg_dark.png",
         width: double.infinity,
         fit: BoxFit.cover,
       ),
@@ -46,8 +47,9 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     Text("English",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: pro.languageCode == "en"
-                                ? MyThemeData.primaryColor
-                                : MyThemeData.blackColor)),
+                                ? Theme.of(context).indicatorColor
+                                : Theme.of(context).cardColor
+                        )),
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
@@ -55,8 +57,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           ? Icon(
                               Icons.check,
                               color: pro.languageCode == "en"
-                                  ? MyThemeData.primaryColor
-                                  : MyThemeData.blackColor,
+                                  ? Theme.of(context).indicatorColor
+                                  : Theme.of(context).cardColor,
                               size: 30,
                             )
                           : SizedBox.shrink(),
@@ -77,8 +79,9 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     Text("عربي",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: pro.languageCode == "ar"
-                                ? MyThemeData.primaryColor
-                                : MyThemeData.blackColor)),
+                                ? Theme.of(context).indicatorColor
+                                : Theme.of(context).cardColor
+                        )),
                     Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
@@ -86,8 +89,8 @@ class _LanguageScreenState extends State<LanguageScreen> {
                           ? Icon(
                               Icons.check,
                               color: pro.languageCode == "ar"
-                                  ? MyThemeData.primaryColor
-                                  : MyThemeData.blackColor,
+                                  ? Theme.of(context).indicatorColor
+                                  : Theme.of(context).cardColor,
                               size: 30,
                             )
                           : SizedBox.shrink(),

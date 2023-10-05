@@ -18,7 +18,8 @@ class _ThemeScreenState extends State<ThemeScreen> {
     var pro = Provider.of<MyProvider>(context);
     return Stack(children: [
       Image.asset(
-        "assets/images/bg.png",
+        pro.themeMode==ThemeMode.light?
+        "assets/images/bg.png":"assets/images/bg_dark.png",
         width: double.infinity,
         fit: BoxFit.cover,
       ),
@@ -45,8 +46,8 @@ class _ThemeScreenState extends State<ThemeScreen> {
                     Text("Light Theme",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                           color: pro.themeMode == ThemeMode.light
-                              ? MyThemeData.primaryColor
-                              : MyThemeData.blackColor
+                              ? Theme.of(context).indicatorColor
+                              : Theme.of(context).cardColor
                         )),
                     const Spacer(),
                     Padding(
@@ -54,9 +55,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                       child: pro.themeMode == ThemeMode.light
                           ? Icon(
                               Icons.check,
-                              color: pro.themeMode == ThemeMode.light
-                                  ? MyThemeData.primaryColor
-                                  : MyThemeData.blackColor,
+                              color:MyThemeData.primaryColor,
                               size: 30,
                             )
                           : SizedBox.shrink(),
@@ -77,8 +76,8 @@ class _ThemeScreenState extends State<ThemeScreen> {
                     Text("Dark Theme",
                         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             color: pro.themeMode == ThemeMode.dark
-                                ? MyThemeData.primaryColor
-                                : MyThemeData.blackColor
+                                ? Theme.of(context).indicatorColor
+                                : Theme.of(context).cardColor
                         )),
                     const Spacer(),
                     Padding(
@@ -88,8 +87,8 @@ class _ThemeScreenState extends State<ThemeScreen> {
                           : Icon(
                               Icons.check,
                               color: pro.themeMode == ThemeMode.dark
-                                  ? MyThemeData.primaryColor
-                                  : MyThemeData.blackColor,
+                                  ? Theme.of(context).indicatorColor
+                                  : Theme.of(context).cardColor,
                               size: 30,
                             ),
                     )

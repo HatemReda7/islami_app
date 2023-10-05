@@ -22,9 +22,9 @@ class RadioTab extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ImageIcon(const AssetImage("assets/images/Icon metro-back.png"),color: MyThemeData.primaryColor),
-                ImageIcon(const AssetImage("assets/images/Icon awesome-play.png"),color: MyThemeData.primaryColor,size: 36,),
-                ImageIcon(const AssetImage("assets/images/Icon metro-next.png"),color: MyThemeData.primaryColor,),
+                ImageIcon(const AssetImage("assets/images/Icon metro-back.png"),color: Theme.of(context).indicatorColor),
+                ImageIcon(const AssetImage("assets/images/Icon awesome-play.png"),color: Theme.of(context).indicatorColor,size: 36,),
+                ImageIcon(const AssetImage("assets/images/Icon metro-next.png"),color: Theme.of(context).indicatorColor,),
               ],
             ),
           )

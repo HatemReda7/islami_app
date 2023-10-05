@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/SuraModel.dart';
 import 'package:islami_app/myThemeData.dart';
+import 'package:islami_app/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class SuraDetails extends StatefulWidget {
   static const String routeName = "Sura Details";
@@ -17,15 +19,18 @@ class _SuraDetailsState extends State<SuraDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var pro = Provider.of<MyProvider>(context);
     var args = ModalRoute.of(context)?.settings.arguments as SuraModel;
     if (verses.isEmpty) {
       loadFile(args.index);
     }
     return Stack(
       children: [
-        const Image(
-          image: AssetImage("assets/images/bg.png"),
-          fit: BoxFit.fill,
+        Image.asset(
+          pro.themeMode==ThemeMode.light?
+          "assets/images/bg.png":"assets/images/bg_dark.png",
+          width: double.infinity,
+          fit: BoxFit.cover,
         ),
         Scaffold(
           appBar: AppBar(
@@ -37,8 +42,10 @@ class _SuraDetailsState extends State<SuraDetails> {
           body: Padding(
             padding: const EdgeInsets.all(30),
             child: Card(
+              color: pro.themeMode==ThemeMode.light?Colors.white:MyThemeData.darkPrimaryColor,
               margin: const EdgeInsets.only(bottom: 40),
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(18)),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(18)),
               elevation: 20,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -51,25 +58,33 @@ class _SuraDetailsState extends State<SuraDetails> {
                         Text(
                           textAlign: TextAlign.right,
                           args.name,
+                          style: TextStyle(
+                          color: Theme.of(context).secondaryHeaderColor
                         ),
-                        const SizedBox(width: 25,),
-                        const ImageIcon(AssetImage("assets/images/circle_play.png"))
+                        ),
+                        const SizedBox(
+                          width: 25,
+                        ),
+                         ImageIcon(
+                            AssetImage("assets/images/circle_play.png"),color: Theme.of(context).secondaryHeaderColor,)
                       ],
                     ),
                     Divider(
                       thickness: 2,
-                      color: MyThemeData.primaryColor,
+                      color: Theme.of(context).indicatorColor,
                       indent: 40,
                       endIndent: 40,
                     ),
                     Expanded(
                       child: ListView.separated(
-                        separatorBuilder: (context, index) => const Divider(color: Colors.transparent,),
+                        separatorBuilder: (context, index) => const Divider(
+                          color: Colors.transparent,
+                        ),
                         itemBuilder: (context, index) {
                           return Center(
                               child: Text(
-                            verses[index],
-                            style: Theme.of(context).textTheme.bodySmall,
+                            "${verses[index]}(${index+1})",
+                            style: Theme.of(context).textTheme.bodySmall!.copyWith(color: Theme.of(context).secondaryHeaderColor),
                             textAlign: TextAlign.center,
                           ));
                         },

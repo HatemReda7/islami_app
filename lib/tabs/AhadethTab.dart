@@ -19,18 +19,17 @@ class AhadethTab extends StatelessWidget {
        children: [
          Image.asset("assets/images/ahadeth_image.png"),
          Divider(
-           color: MyThemeData.primaryColor,
+           color: Theme.of(context).indicatorColor,
            thickness: 2,
          ),
          Text(
            AppLocalizations.of(context)!.ahadeth,
            style: Theme.of(context)
                .textTheme
-               .bodyMedium!
-               .copyWith(color: MyThemeData.blackColor),
+               .bodyMedium,
          ),
          Divider(
-           color: MyThemeData.primaryColor,
+           color: Theme.of(context).indicatorColor,
            thickness: 2,
          ),
          Expanded(

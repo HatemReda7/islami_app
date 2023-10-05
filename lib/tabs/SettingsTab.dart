@@ -25,7 +25,7 @@ class SettingsTab extends StatelessWidget {
                   children: [
                     Text(AppLocalizations.of(context)!.theme,style: Theme.of(context).textTheme.bodyLarge,textAlign: TextAlign.left,),
                     Spacer(),
-                    Icon(Icons.navigate_next,size: 40,color: MyThemeData.blackColor,),
+                    Icon(Icons.navigate_next,size: 40,color: Theme.of(context).cardColor,),
                   ],
                 ),
             ),
@@ -38,7 +38,7 @@ class SettingsTab extends StatelessWidget {
                   children: [
                     Text(AppLocalizations.of(context)!.language,style: Theme.of(context).textTheme.bodyLarge,textAlign: TextAlign.left,),
                     Spacer(),
-                    Icon(Icons.navigate_next,size: 40,color: MyThemeData.blackColor,),
+                    Icon(Icons.navigate_next,size: 40,color: Theme.of(context).cardColor,),
                   ],
                 )
             ),

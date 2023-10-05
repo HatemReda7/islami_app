@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/myThemeData.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/providers/my_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -18,11 +20,13 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var pro= Provider.of<MyProvider>(context);
     return Center(
       child: Column(
         children: [
           Image.asset(
-            "assets/images/sebha.png",
+            pro.themeMode==ThemeMode.light?
+            "assets/images/sebha.png":"assets/images/sebha_dark.png",
             width: 232,
             height: 312,
           ),
@@ -39,7 +43,7 @@ class _SebhaTabState extends State<SebhaTab> {
             width: 70,
             height: 80,
             decoration: BoxDecoration(
-                color: const Color(0XFFB7935F),
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(25)),
             child: Center(
                 child: Text(
@@ -59,7 +63,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
                     backgroundColor:
-                        MaterialStatePropertyAll(MyThemeData.primaryColor)),
+                        MaterialStatePropertyAll(Theme.of(context).indicatorColor)),
                 onPressed: () {
                   if(counter<32){
                     counter++;
@@ -81,7 +85,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
-                        .copyWith(color: Colors.white),
+                        .copyWith(color: pro.themeMode==ThemeMode.light? Color(0xffFFFFFF):Color(0xff0F1424)),
                   ),
                 )
             ),
