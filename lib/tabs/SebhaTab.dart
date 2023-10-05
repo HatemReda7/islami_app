@@ -16,6 +16,7 @@ class _SebhaTabState extends State<SebhaTab> {
 
   int index=0;
   int counter=0;
+  double angle=0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,11 +24,18 @@ class _SebhaTabState extends State<SebhaTab> {
     return Center(
       child: Column(
         children: [
-          Image.asset(
-            pro.themeMode==ThemeMode.light?
-            "assets/images/sebha.png":"assets/images/sebha_dark.png",
-            width: 232,
-            height: 312,
+          Transform.rotate(
+            alignment: Alignment.center,
+            angle: angle,
+            child: InkWell(
+              onTap: () => tasbihLogic(),
+              child: Image.asset(
+                pro.themeMode==ThemeMode.light?
+                "assets/images/sebha.png":"assets/images/sebha_dark.png",
+                width: 232,
+                height: 312,
+              ),
+            ),
           ),
           const SizedBox(height: 40,),
           Text(
@@ -64,17 +72,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     backgroundColor:
                         MaterialStatePropertyAll(Theme.of(context).indicatorColor)),
                 onPressed: () {
-                  if(counter<32){
-                    counter++;
-                  }else {
-                    counter=0;
-                    if(index<azkar.length-1){
-                      index++;
-                    }else {
-                      index=0;
-                    }
-                  }
-                  setState(() {});
+                  tasbihLogic();
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(4),
@@ -93,4 +91,21 @@ class _SebhaTabState extends State<SebhaTab> {
       ),
     );
   }
+
+  tasbihLogic(){
+    angle+=0.19;
+    if(counter<32){
+      counter++;
+    }else {
+      angle=0;
+      counter=0;
+      if(index<azkar.length-1){
+        index++;
+      }else {
+        index=0;
+      }
+    }
+    setState(() {});
+  }
+
 }
