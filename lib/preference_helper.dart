@@ -18,4 +18,12 @@ class PrefsHelper{
   static String? getTheme(){
     return prefs.getString("Theme");
   }
+
+  static saveCounter(double counter)async{
+    await prefs.setDouble("Counter", counter);
+  }
+
+  static double? getCounter (){
+    return prefs.getDouble("Counter");
+  }
 }

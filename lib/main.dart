@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/Counter_Screen.dart';
 import 'package:islami_app/Hadeth_Details.dart';
 import 'package:islami_app/Language_Screen.dart';
 import 'package:islami_app/SplashScreen.dart';
@@ -11,6 +12,7 @@ import 'package:islami_app/preference_helper.dart';
 import 'package:islami_app/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +41,7 @@ class MyApp extends StatelessWidget {
         HadethDetails.routeName : (context) => const HadethDetails(),
         ThemeScreen.routeName : (context) =>  const ThemeScreen(),
         LanguageScreen.routeName : (context) =>  const LanguageScreen(),
+        CounterScreen.routeName : (context) =>  const CounterScreen(),
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,

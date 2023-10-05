@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/Counter_Screen.dart';
 import 'package:islami_app/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -64,7 +65,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     backgroundColor:
                         MaterialStatePropertyAll(Theme.of(context).indicatorColor)),
                 onPressed: () {
-                  if(counter<32){
+                  if(counter<pro.tasbihCounter-1){
                     counter++;
                   }else {
                     counter=0;
