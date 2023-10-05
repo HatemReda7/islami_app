@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/myThemeData.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
@@ -13,7 +13,7 @@ class RadioTab extends StatelessWidget {
         children: [
           Image.asset("assets/images/radio_image.png"),
           const SizedBox(height: 70,),
-          Text("إذاعة القرآن الكريم", style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 25,),),
+          Text(AppLocalizations.of(context)!.ezaatquran, style: Theme.of(context).textTheme.bodySmall!.copyWith(fontSize: 25,),),
           const SizedBox(height: 60,),
           SizedBox(
             width: 330,
@@ -21,9 +21,9 @@ class RadioTab extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ImageIcon(const AssetImage("assets/images/Icon metro-back.png"),color: MyThemeData.primaryColor),
-                ImageIcon(const AssetImage("assets/images/Icon awesome-play.png"),color: MyThemeData.primaryColor,size: 36,),
-                ImageIcon(const AssetImage("assets/images/Icon metro-next.png"),color: MyThemeData.primaryColor,),
+                ImageIcon(const AssetImage("assets/images/Icon metro-back.png"),color: Theme.of(context).indicatorColor),
+                ImageIcon(const AssetImage("assets/images/Icon awesome-play.png"),color: Theme.of(context).indicatorColor,size: 36,),
+                ImageIcon(const AssetImage("assets/images/Icon metro-next.png"),color: Theme.of(context).indicatorColor,),
               ],
             ),
           )

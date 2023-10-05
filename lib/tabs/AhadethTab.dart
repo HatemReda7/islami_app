@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/HadethModel.dart';
 import 'package:islami_app/Hadeth_Details.dart';
-import 'package:islami_app/myThemeData.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatelessWidget {
 
   List<HadethModel> allAhadeth=[];
+
+  AhadethTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +20,17 @@ class AhadethTab extends StatelessWidget {
        children: [
          Image.asset("assets/images/ahadeth_image.png"),
          Divider(
-           color: MyThemeData.primaryColor,
+           color: Theme.of(context).indicatorColor,
            thickness: 2,
          ),
          Text(
            AppLocalizations.of(context)!.ahadeth,
            style: Theme.of(context)
                .textTheme
-               .bodyMedium!
-               .copyWith(color: MyThemeData.blackColor),
+               .bodyMedium,
          ),
          Divider(
-           color: MyThemeData.primaryColor,
+           color: Theme.of(context).indicatorColor,
            thickness: 2,
          ),
          Expanded(
@@ -75,7 +75,6 @@ class AhadethTab extends StatelessWidget {
         allAhadeth.add(hadethModel);
       }
     },).catchError((e){
-      print(e.toString());
     });
 
   }

@@ -1,6 +1,15 @@
 {
   "appTitle": "Islami",
   "suraNames": "Sura Names",
+  "language": "Language",
+  "theme": "Theme",
+  "settings": "Settings",
+  "radio": "Radio",
+  "sebha": "Sebha",
+  "quran": "Quran",
+  "numoftasbih": "Number Of Tasbihat",
+  "ezaatquran": "Ezaat Al Quran",
+  "arabic": "Arabic",
   "ahadeth": "Ahadeth"
 
 }
