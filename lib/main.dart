@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         HomeScreen.routeName : (context) => const HomeScreen(),
         SuraDetails.routeName : (context) => const SuraDetails(),
         HadethDetails.routeName : (context) => const HadethDetails(),
-        ThemeScreen.routeName : (context) =>  ThemeScreen(),
+        ThemeScreen.routeName : (context) =>  const ThemeScreen(),
         LanguageScreen.routeName : (context) =>  const LanguageScreen(),
       },
       theme: MyThemeData.lightTheme,
