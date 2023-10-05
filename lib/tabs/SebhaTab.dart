@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/myThemeData.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/providers/my_provider.dart';
 import 'package:provider/provider.dart';
@@ -85,7 +84,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     style: Theme.of(context)
                         .textTheme
                         .bodyMedium!
-                        .copyWith(color: pro.themeMode==ThemeMode.light? Color(0xffFFFFFF):Color(0xff0F1424)),
+                        .copyWith(color: pro.themeMode==ThemeMode.light? const Color(0xffFFFFFF):const Color(0xff0F1424)),
                   ),
                 )
             ),

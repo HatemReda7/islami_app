@@ -5,7 +5,6 @@ import 'package:islami_app/SuraDetails.dart';
 import 'package:islami_app/HomeScreen.dart';
 import 'package:islami_app/Theme_Screen.dart';
 import 'package:islami_app/myThemeData.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami_app/providers/my_provider.dart';
 import 'package:provider/provider.dart';
@@ -31,9 +30,9 @@ class MyApp extends StatelessWidget {
       routes: {
         HomeScreen.routeName : (context) => const HomeScreen(),
         SuraDetails.routeName : (context) => const SuraDetails(),
-        HadethDetails.routeName : (context) => HadethDetails(),
+        HadethDetails.routeName : (context) => const HadethDetails(),
         ThemeScreen.routeName : (context) =>  ThemeScreen(),
-        LanguageScreen.routeName : (context) =>  LanguageScreen(),
+        LanguageScreen.routeName : (context) =>  const LanguageScreen(),
       },
       theme: MyThemeData.lightTheme,
       darkTheme: MyThemeData.darkTheme,

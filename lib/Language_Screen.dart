@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:islami_app/myThemeData.dart';
 import 'package:islami_app/providers/my_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -8,6 +7,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class LanguageScreen extends StatefulWidget {
   static const String routeName = "Language Screen";
   static String lang = "";
+
+  const LanguageScreen({super.key});
 
   @override
   State<LanguageScreen> createState() => _LanguageScreenState();
@@ -50,7 +51,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                 ? Theme.of(context).indicatorColor
                                 : Theme.of(context).cardColor
                         )),
-                    Spacer(),
+                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
                       child: pro.languageCode == "en"
@@ -61,12 +62,12 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                   : Theme.of(context).cardColor,
                               size: 30,
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     )
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
@@ -82,7 +83,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                 ? Theme.of(context).indicatorColor
                                 : Theme.of(context).cardColor
                         )),
-                    Spacer(),
+                    const Spacer(),
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
                       child: pro.languageCode == "ar"
@@ -93,7 +94,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                                   : Theme.of(context).cardColor,
                               size: 30,
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     )
                   ],
                 ),

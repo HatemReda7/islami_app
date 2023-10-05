@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/HadethModel.dart';
 import 'package:islami_app/Hadeth_Details.dart';
-import 'package:islami_app/myThemeData.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AhadethTab extends StatelessWidget {
 
   List<HadethModel> allAhadeth=[];
+
+  AhadethTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +75,6 @@ class AhadethTab extends StatelessWidget {
         allAhadeth.add(hadethModel);
       }
     },).catchError((e){
-      print(e.toString());
     });
 
   }

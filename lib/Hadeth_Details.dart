@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 class HadethDetails extends StatelessWidget {
   static const String routeName="Hadeth Details";
 
+  const HadethDetails({super.key});
+
   @override
   Widget build(BuildContext context) {
     var pro= Provider.of<MyProvider>(context);

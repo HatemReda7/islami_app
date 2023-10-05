@@ -66,7 +66,7 @@ class _SuraDetailsState extends State<SuraDetails> {
                           width: 25,
                         ),
                          ImageIcon(
-                            AssetImage("assets/images/circle_play.png"),color: Theme.of(context).secondaryHeaderColor,)
+                            const AssetImage("assets/images/circle_play.png"),color: Theme.of(context).secondaryHeaderColor,)
                       ],
                     ),
                     Divider(

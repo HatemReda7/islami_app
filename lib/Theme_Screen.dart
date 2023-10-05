@@ -8,6 +8,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 class ThemeScreen extends StatefulWidget {
   static const String routeName = "Theme Screen";
 
+  const ThemeScreen({super.key});
+
   @override
   State<ThemeScreen> createState() => _ThemeScreenState();
 }
@@ -58,7 +60,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                               color:MyThemeData.primaryColor,
                               size: 30,
                             )
-                          : SizedBox.shrink(),
+                          : const SizedBox.shrink(),
                     )
                   ],
                 ),
@@ -83,7 +85,7 @@ class _ThemeScreenState extends State<ThemeScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 15, right: 15),
                       child: pro.themeMode == ThemeMode.light
-                          ? SizedBox.shrink()
+                          ? const SizedBox.shrink()
                           : Icon(
                               Icons.check,
                               color: pro.themeMode == ThemeMode.dark
