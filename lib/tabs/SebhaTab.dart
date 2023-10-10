@@ -29,7 +29,7 @@ class _SebhaTabState extends State<SebhaTab> {
             alignment: Alignment.center,
             angle: angle,
             child: InkWell(
-              onTap: () => tasbihLogic(),
+              onTap: () => tasbihLogic(pro.tasbihCounter),
               child: Image.asset(
                 pro.themeMode==ThemeMode.light?
                 "assets/images/sebha.png":"assets/images/sebha_dark.png",
@@ -73,7 +73,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     backgroundColor:
                         MaterialStatePropertyAll(Theme.of(context).indicatorColor)),
                 onPressed: () {
-                  tasbihLogic();
+                  tasbihLogic(pro.tasbihCounter);
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(4),
@@ -93,9 +93,9 @@ class _SebhaTabState extends State<SebhaTab> {
     );
   }
 
-  tasbihLogic(){
+  tasbihLogic(double tasbihcounter){
     angle+=0.19;
-    if(counter<32){
+    if(counter< tasbihcounter-1){
       counter++;
     }else {
       angle=0;
@@ -108,5 +108,4 @@ class _SebhaTabState extends State<SebhaTab> {
     }
     setState(() {});
   }
-
 }
