@@ -65,7 +65,7 @@ class _SebhaTabState extends State<SebhaTab> {
                     backgroundColor:
                         MaterialStatePropertyAll(Theme.of(context).indicatorColor)),
                 onPressed: () {
-
+                  tasbihLogic();
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(4),
